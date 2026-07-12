@@ -1,5 +1,3 @@
-local TARGET_PLACE_ID = "123456789"
-
 local function deriveKey()
     if tostring(game.PlaceId or 0) ~= TARGET_PLACE_ID then
         return nil
@@ -35,7 +33,7 @@ local function xorDecrypt(str, key)
     return table.concat(out)
 end
 
-local rawURL = xorDecrypt(encryptedBlob, SECRET_KEY)
+local rawURL = xorDecrypt(id, SECRET_KEY)
 if not rawURL:match("^https://") then
     return
 end
